@@ -30,6 +30,12 @@ class Aggregator {
           break;
         case 'binary':
           this._pushStats(['audits', audit.id], audit.score);
+          if (audit.numericValue) {
+            this._pushStats(
+              ['audits', audit.id + '-value'],
+              audit.numericValue
+            );
+          }
           break;
         default:
           break;
